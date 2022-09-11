@@ -1,0 +1,24 @@
+{
+  "recommendations": [
+    "dsznajder.es7-react-js-snippets",
+    "burkeholland.simple-react-snippets",
+    "xabikos.JavaScriptSnippets",
+    "numso.prettier-standard-vscode",
+    "VisualStudioExptTeam.vscodeintellicode",
+    "aaron-bond.better-comments",
+    "IronGeek.vscode-env",
+    "usernamehw.errorlens",
+    "bradlc.vscode-tailwindcss",
+    "Gruntfuggly.todo-tree",
+    "pmneo.tsimporter",
+    "blanu.vscode-styled-jsx",
+    "quicktype.quicktype",
+    "formulahendry.auto-close-tag",
+    "formulahendry.auto-rename-tag",
+    "naumovs.color-highlight",
+    "Tobermory.es6-string-html",
+    "dbaeumer.vscode-eslint",
+    "zitup.classnametocss",
+    "Zignd.html-css-class-completion"
+  ]
+}

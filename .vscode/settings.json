@@ -1,0 +1,64 @@
+{
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "numso.prettier-standard-vscode",
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "numso.prettier-standard-vscode",
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "numso.prettier-standard-vscode",
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "numso.prettier-standard-vscode",
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+  },
+  "[css]": {
+    "editor.defaultFormatter": "numso.prettier-standard-vscode",
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+  },
+   "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+   "[jsonc]" : {
+    "editor.defaultFormatter" : "vscode.json-language-features",
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+  },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescriptreact",
+    "typescript"
+  ],
+  "cssrem.rootFontSize": 16,
+  "cssrem.fixedDigits": 3,
+  "html-css-class-completion.CSSLanguages": [
+    "css",
+    "sass",
+    "scss"
+  ],
+  "html-css-class-completion.enableEmmetSupport": true,
+  "html-css-class-completion.HTMLLanguages": [
+    "jsx",
+    "tsx",
+    "javascriptreact",
+    "typescriptreact",
+    "html",
+    "markdown"
+  ],
+  "html-css-class-completion.includeGlobPattern": "**/*.{css,html,jsx,tsx}",
+  "html-css-class-completion.JavaScriptLanguages": [
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact"
+  ]
+}
