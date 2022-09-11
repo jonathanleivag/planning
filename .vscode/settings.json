@@ -24,11 +24,11 @@
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
   },
-   "[json]": {
+  "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
-   "[jsonc]" : {
-    "editor.defaultFormatter" : "vscode.json-language-features",
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
   },
@@ -60,5 +60,6 @@
     "typescript",
     "javascriptreact",
     "typescriptreact"
-  ]
+  ],
+  "cSpell.language": "en,es"
 }

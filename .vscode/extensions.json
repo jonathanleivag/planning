@@ -19,6 +19,8 @@
     "Tobermory.es6-string-html",
     "dbaeumer.vscode-eslint",
     "zitup.classnametocss",
-    "Zignd.html-css-class-completion"
+    "Zignd.html-css-class-completion",
+    "streetsidesoftware.code-spell-checker-spanish",
+    "streetsidesoftware.code-spell-checker"
   ]
 }
