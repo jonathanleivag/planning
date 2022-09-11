@@ -64,6 +64,7 @@
   "cSpell.language": "en,es",
   "css.lint.unknownAtRules": "ignore",
   "cSpell.words": [
-    "jonathanleivag"
+    "jonathanleivag",
+    "tailwindcss"
   ]
 }
