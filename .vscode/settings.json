@@ -61,5 +61,6 @@
     "javascriptreact",
     "typescriptreact"
   ],
-  "cSpell.language": "en,es"
+  "cSpell.language": "en,es",
+  "css.lint.unknownAtRules": "ignore"
 }
