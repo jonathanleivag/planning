@@ -1,14 +1,20 @@
-import { FC } from 'react'
+import { Dispatch, DragEventHandler, FC } from 'react'
 import { IconType } from 'react-icons'
 import { AiOutlineMobile } from 'react-icons/ai'
 import { BiServer } from 'react-icons/bi'
-import { BsPencil, BsServer } from 'react-icons/bs'
+import { BsMicrosoft, BsPencil, BsServer } from 'react-icons/bs'
 import { MdWeb } from 'react-icons/md'
 
+import { IItem } from '../App'
+import { TName } from './ListComponent'
+
 interface ICardCOmponent {
+  id: string
   title: string
   children: string
+  section: TName
   type?: TTypeICon
+  setDragged: Dispatch<IItem | undefined>
 }
 
 interface IIconComponentProps {
@@ -33,7 +39,7 @@ const IconComponent = ({ type }: IIconComponentProps): IIconComponentResp => {
       break
     case 'db':
       Icon = BsServer
-      bg = 'bg-red-500'
+      bg = 'bg-yellow-500'
       break
     case 'web':
       Icon = MdWeb
@@ -41,23 +47,44 @@ const IconComponent = ({ type }: IIconComponentProps): IIconComponentResp => {
       break
     case 'app':
       Icon = AiOutlineMobile
-      bg = 'bg-yellow-500'
+      bg = 'bg-purple-500'
       break
     default:
-      Icon = BiServer
-      bg = 'bg-blue-500'
+      Icon = BsMicrosoft
+      bg = 'bg-gray-500'
       break
   }
 
   return { component: <Icon className='text-xl' />, bg }
 }
 
-const CardComponent: FC<ICardCOmponent> = ({ title, children, type }) => {
+const CardComponent: FC<ICardCOmponent> = ({
+  id,
+  title,
+  section,
+  children,
+  type,
+  setDragged
+}) => {
+  const handleDragStart: DragEventHandler<HTMLDivElement> = event => {
+    setDragged({
+      id,
+      title,
+      description: children,
+      type: type!,
+      section
+    })
+  }
+
   return (
-    <div className='bg-gray-300 w-11/12 min-h-[100px] rounded-lg mt-5 p-2 flex flex-row justify-between text-gray-800'>
+    <div
+      draggable
+      onDragStart={handleDragStart}
+      className='bg-gray-300 w-11/12 min-h-[100px] rounded-lg mt-5 p-2 flex flex-row justify-between text-gray-800'
+    >
       <div className='flex flex-row justify-center items-center gap-4'>
         <div
-          className={`p-3 bg-gray-400 rounded-full ${
+          className={`p-3 rounded-full text-white ${
             IconComponent({ type }).bg
           }`}
         >
