@@ -80,7 +80,7 @@ const CardComponent: FC<ICardCOmponent> = ({
     <div
       draggable
       onDragStart={handleDragStart}
-      className='bg-gray-300 w-11/12 min-h-[100px] rounded-lg mt-5 p-2 flex flex-row justify-between text-gray-800'
+      className='bg-gray-300 w-11/12 min-h-[100px] rounded-lg mt-5 p-2 flex flex-row justify-between text-gray-800 cursor-move'
     >
       <div className='flex flex-row justify-center items-center gap-4'>
         <div
