@@ -65,6 +65,7 @@
   "css.lint.unknownAtRules": "ignore",
   "cSpell.words": [
     "jonathanleivag",
+    "reduxjs",
     "tailwindcss"
   ]
 }
