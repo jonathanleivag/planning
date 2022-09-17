@@ -1,3 +1,5 @@
+export type { TTypeICon } from './CardComponent'
 export { default as CardComponent } from './CardComponent'
+export type { TName } from './ListComponent'
 export { default as ListComponent } from './ListComponent'
 export { default as NavbarComponent } from './NavbarComponent'

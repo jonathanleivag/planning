@@ -5,7 +5,7 @@ import { BiServer } from 'react-icons/bi'
 import { BsMicrosoft, BsPencil, BsServer } from 'react-icons/bs'
 import { MdWeb } from 'react-icons/md'
 
-import { IItem } from '../App'
+import { IItem } from '../features'
 import { TName } from './ListComponent'
 
 interface ICardCOmponent {

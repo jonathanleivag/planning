@@ -2,9 +2,13 @@ import { DragEventHandler, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { RootState } from './app/store'
-import { CardComponent, ListComponent, NavbarComponent } from './components'
-import { TName } from './components/ListComponent'
-import { IItem, moveItem } from './features/item/itemSlice'
+import {
+  CardComponent,
+  ListComponent,
+  NavbarComponent,
+  TName
+} from './components'
+import { IItem, moveItem } from './features'
 
 function App () {
   const [dragged, setDragged] = useState<IItem | undefined>(undefined)

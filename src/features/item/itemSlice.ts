@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import { TTypeICon } from '../../components/CardComponent'
-import { TName } from '../../components/ListComponent'
+import { TName, TTypeICon } from '../../components'
 
 export interface IItem {
   id: string
