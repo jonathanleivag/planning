@@ -3,18 +3,20 @@ import { IconType } from 'react-icons'
 import { AiOutlineMobile } from 'react-icons/ai'
 import { BiServer } from 'react-icons/bi'
 import { BsMicrosoft, BsPencil, BsServer } from 'react-icons/bs'
+import { FcPlus } from 'react-icons/fc'
 import { MdWeb } from 'react-icons/md'
 
 import { IItem } from '../features'
 import { TName } from './ListComponent'
 
 interface ICardCOmponent {
-  id: string
-  title: string
-  children: string
-  section: TName
+  id?: string
+  title?: string
+  children?: string
+  section?: TName
   type?: TTypeICon
-  setDragged: Dispatch<IItem | undefined>
+  setDragged?: Dispatch<IItem | undefined>
+  add?: boolean
 }
 
 interface IIconComponentProps {
@@ -64,40 +66,55 @@ const CardComponent: FC<ICardCOmponent> = ({
   section,
   children,
   type,
-  setDragged
+  setDragged,
+  add = false
 }) => {
   const handleDragStart: DragEventHandler<HTMLDivElement> = event => {
-    setDragged({
-      id,
-      title,
-      description: children,
+    setDragged!({
+      id: id!,
+      title: title!,
+      description: children!,
       type: type!,
-      section
+      section: section!
     })
+  }
+
+  const handleOnClick = () => {
+    console.log('click')
   }
 
   return (
     <div
-      draggable
-      onDragStart={handleDragStart}
-      className='bg-gray-300 w-11/12 min-h-[100px] rounded-lg mt-5 p-2 flex flex-row justify-between text-gray-800 cursor-move'
+      draggable={!add}
+      onClick={add ? handleOnClick : undefined}
+      onDragStart={add ? undefined : handleDragStart}
+      className={`w-11/12 rounded-lg mt-5 p-2 flex flex-row text-gray-800 ${
+        add
+          ? 'border-dashed hover:border-solid border-2 border-gray-300 max-h-[60px] min-h-[60px] justify-center items-center cursor-pointer'
+          : 'cursor-move bg-gray-300 max-h-[100px] min-h-[100px] justify-between'
+      }`}
     >
-      <div className='flex flex-row justify-center items-center gap-4'>
-        <div
-          className={`p-3 rounded-full text-white ${
-            IconComponent({ type }).bg
-          }`}
-        >
-          {IconComponent({ type }).component}
-        </div>
-        <span>
-          <h2 className='font-bold text-lg'>{title}</h2>
-          <p className='font-light text-base'>{children}</p>
-        </span>
-      </div>
-      <button>
-        <BsPencil className='text-xl' />
-      </button>
+      {add && <FcPlus className='text-3xl' />}
+      {!add && (
+        <>
+          <div className='flex flex-row justify-center items-center gap-4'>
+            <div
+              className={`p-3 rounded-full text-white ${
+                IconComponent({ type }).bg
+              }`}
+            >
+              {IconComponent({ type }).component}
+            </div>
+            <span>
+              <h2 className='font-bold text-lg'>{title}</h2>
+              <p className='font-light text-base'>{children}</p>
+            </span>
+          </div>
+          <button>
+            <BsPencil className='text-xl' />
+          </button>
+        </>
+      )}
     </div>
   )
 }

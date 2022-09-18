@@ -32,18 +32,22 @@ function App () {
       <NavbarComponent />
       <main className='flex flex-col md:flex-row gap-4 px-5'>
         <ListComponent handleOnDrop={handleOnDrop} name='TODO'>
-          {TODO.map(item => (
-            <CardComponent
-              section={item.section}
-              setDragged={setDragged}
-              key={item.id}
-              id={item.id}
-              title={item.title}
-              type={item.type}
-            >
-              {item.description}
-            </CardComponent>
-          ))}
+          <>
+            {TODO.map(item => (
+              <CardComponent
+                section={item.section}
+                setDragged={setDragged}
+                key={item.id}
+                id={item.id}
+                title={item.title}
+                type={item.type}
+              >
+                {item.description}
+              </CardComponent>
+            ))}
+
+            <CardComponent add />
+          </>
         </ListComponent>
 
         <ListComponent handleOnDrop={handleOnDrop} name='DOING'>
