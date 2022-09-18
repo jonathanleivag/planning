@@ -1,4 +1,4 @@
-import { Dispatch, DragEventHandler, FC } from 'react'
+import { Dispatch, DragEventHandler, FC, SetStateAction } from 'react'
 import { IconType } from 'react-icons'
 import { AiOutlineMobile } from 'react-icons/ai'
 import { BiServer } from 'react-icons/bi'
@@ -17,6 +17,7 @@ interface ICardCOmponent {
   type?: TTypeICon
   setDragged?: Dispatch<IItem | undefined>
   add?: boolean
+  setIsOpenModal?: Dispatch<SetStateAction<boolean>>
 }
 
 interface IIconComponentProps {
@@ -67,7 +68,8 @@ const CardComponent: FC<ICardCOmponent> = ({
   children,
   type,
   setDragged,
-  add = false
+  add = false,
+  setIsOpenModal
 }) => {
   const handleDragStart: DragEventHandler<HTMLDivElement> = event => {
     setDragged!({
@@ -79,9 +81,7 @@ const CardComponent: FC<ICardCOmponent> = ({
     })
   }
 
-  const handleOnClick = () => {
-    console.log('click')
-  }
+  const handleOnClick = () => setIsOpenModal!(true)
 
   return (
     <div

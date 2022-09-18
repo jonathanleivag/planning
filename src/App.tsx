@@ -5,6 +5,7 @@ import { RootState } from './app/store'
 import {
   CardComponent,
   ListComponent,
+  Modal,
   NavbarComponent,
   TName
 } from './components'
@@ -16,6 +17,7 @@ function App () {
   const DOING = useSelector((state: RootState) => state.item.DOING)
   const DONE = useSelector((state: RootState) => state.item.DONE)
   const dispatch = useDispatch()
+  const [isOpenModal, setIsOpenModal] = useState<boolean>(false)
 
   const handleOnDrop: DragEventHandler<HTMLDivElement> = event => {
     event.preventDefault()
@@ -30,7 +32,7 @@ function App () {
   return (
     <>
       <NavbarComponent />
-      <main className='flex flex-col md:flex-row gap-4 px-5'>
+      <main className='flex gap-4 px-5 overflow-x-scroll'>
         <ListComponent handleOnDrop={handleOnDrop} name='TODO'>
           <>
             {TODO.map(item => (
@@ -46,7 +48,7 @@ function App () {
               </CardComponent>
             ))}
 
-            <CardComponent add />
+            <CardComponent add setIsOpenModal={setIsOpenModal} />
           </>
         </ListComponent>
 
@@ -80,6 +82,7 @@ function App () {
           ))}
         </ListComponent>
       </main>
+      <Modal isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} />
     </>
   )
 }
