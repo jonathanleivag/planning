@@ -8,7 +8,7 @@ const EditorComponent = () => {
       apiKey={KEY_EDITOR}
       init={{
         plugins:
-          'lists checklist image link code table media emoticons hr anchor pagebreak nonbreaking toc insertdatetime advlist autolink lists link image charmap print preview anchor searchreplace visualblocks code fullscreen insertdatetime media table paste code wordcount',
+          'lists checklist image link code table media emoticons anchor pagebreak nonbreaking insertdatetime advlist autolink lists link image charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table  code wordcount',
         toolbar:
           'checklist numlist  indent undo redo bold underline  alignleft aligncenter alignright alignjustify fontsizeselect  forecolor backcolor link image media  removeformat emoticons pagebreak preview fullscreen  code codesample  table advlist',
         placeholder: 'Escribe tu tarea',
