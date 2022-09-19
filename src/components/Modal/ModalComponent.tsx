@@ -2,6 +2,8 @@ import { Dispatch, FC, SetStateAction } from 'react'
 import { AiFillCloseCircle } from 'react-icons/ai'
 import ReactModal from 'react-modal'
 
+import { FormComponent } from './form'
+
 interface IModalProps {
   isOpenModal: boolean
   setIsOpenModal: Dispatch<SetStateAction<boolean>>
@@ -16,11 +18,14 @@ const Modal: FC<IModalProps> = ({ setIsOpenModal, isOpenModal }) => {
       isOpen={isOpenModal}
       onRequestClose={handleCloseModal}
     >
-      <div className='w-full flex justify-end items-center text-red-400'>
-        <AiFillCloseCircle
-          onClick={handleCloseModal}
-          className='text-2xl cursor-pointer'
-        />
+      <AiFillCloseCircle
+        onClick={handleCloseModal}
+        className='text-2xl cursor-pointer fixed text-red-500'
+      />
+      <div className='w-full flex justify-center overflow-y-auto'>
+        <div className='w-10/12 mt-10'>
+          <FormComponent />
+        </div>
       </div>
     </ReactModal>
   )

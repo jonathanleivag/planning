@@ -6,6 +6,7 @@ export interface IItem {
   id: string
   title: string
   description: string
+  content: string
   type: TTypeICon
   section: TName
 }
@@ -28,35 +29,40 @@ const initialState: IElement = {
       title: 'Server',
       description: 'Server description',
       type: 'server',
-      section: 'TODO'
+      section: 'TODO',
+      content: 'Server content'
     },
     {
       id: '2',
       title: 'Database',
       description: 'Database description',
       type: 'db',
-      section: 'TODO'
+      section: 'TODO',
+      content: 'Server content'
     },
     {
       id: '3',
       title: 'Web',
       description: 'Web description',
       type: 'web',
-      section: 'TODO'
+      section: 'TODO',
+      content: 'Server content'
     },
     {
       id: '4',
       title: 'App',
       description: 'App description',
       type: 'app',
-      section: 'TODO'
+      section: 'TODO',
+      content: 'Server content'
     },
     {
       id: '5',
       title: 'Other',
       description: 'Other description',
       type: 'other',
-      section: 'TODO'
+      section: 'TODO',
+      content: 'Server content'
     }
   ],
   DOING: [],

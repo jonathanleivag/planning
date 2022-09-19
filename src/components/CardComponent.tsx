@@ -18,6 +18,7 @@ interface ICardCOmponent {
   setDragged?: Dispatch<IItem | undefined>
   add?: boolean
   setIsOpenModal?: Dispatch<SetStateAction<boolean>>
+  content?: string
 }
 
 interface IIconComponentProps {
@@ -69,7 +70,8 @@ const CardComponent: FC<ICardCOmponent> = ({
   type,
   setDragged,
   add = false,
-  setIsOpenModal
+  setIsOpenModal,
+  content
 }) => {
   const handleDragStart: DragEventHandler<HTMLDivElement> = event => {
     setDragged!({
@@ -77,7 +79,8 @@ const CardComponent: FC<ICardCOmponent> = ({
       title: title!,
       description: children!,
       type: type!,
-      section: section!
+      section: section!,
+      content: content!
     })
   }
 

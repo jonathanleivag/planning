@@ -5,7 +5,7 @@ import { RootState } from './app/store'
 import {
   CardComponent,
   ListComponent,
-  Modal,
+  ModalComponent,
   NavbarComponent,
   TName
 } from './components'
@@ -43,6 +43,7 @@ function App () {
                 id={item.id}
                 title={item.title}
                 type={item.type}
+                content={item.content}
               >
                 {item.description}
               </CardComponent>
@@ -61,6 +62,7 @@ function App () {
               id={item.id}
               title={item.title}
               type={item.type}
+              content={item.content}
             >
               {item.description}
             </CardComponent>
@@ -76,13 +78,17 @@ function App () {
               id={item.id}
               title={item.title}
               type={item.type}
+              content={item.content}
             >
               {item.description}
             </CardComponent>
           ))}
         </ListComponent>
       </main>
-      <Modal isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal} />
+      <ModalComponent
+        isOpenModal={isOpenModal}
+        setIsOpenModal={setIsOpenModal}
+      />
     </>
   )
 }
