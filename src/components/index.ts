@@ -1,5 +1,6 @@
 export type { TTypeICon } from './CardComponent'
 export { default as CardComponent } from './CardComponent'
+export { EditorComponent, FormComponent } from './form'
 export type { TName } from './ListComponent'
 export { default as ListComponent } from './ListComponent'
 export { ModalComponent } from './Modal'

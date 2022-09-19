@@ -3,10 +3,10 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { TName, TTypeICon } from '../../components'
 
 export interface IItem {
-  id: string
+  id?: string
   title: string
   description: string
-  content: string
+  content?: string
   type: TTypeICon
   section: TName
 }
@@ -23,48 +23,7 @@ interface IMoveItem {
 }
 
 const initialState: IElement = {
-  TODO: [
-    {
-      id: '1',
-      title: 'Server',
-      description: 'Server description',
-      type: 'server',
-      section: 'TODO',
-      content: 'Server content'
-    },
-    {
-      id: '2',
-      title: 'Database',
-      description: 'Database description',
-      type: 'db',
-      section: 'TODO',
-      content: 'Server content'
-    },
-    {
-      id: '3',
-      title: 'Web',
-      description: 'Web description',
-      type: 'web',
-      section: 'TODO',
-      content: 'Server content'
-    },
-    {
-      id: '4',
-      title: 'App',
-      description: 'App description',
-      type: 'app',
-      section: 'TODO',
-      content: 'Server content'
-    },
-    {
-      id: '5',
-      title: 'Other',
-      description: 'Other description',
-      type: 'other',
-      section: 'TODO',
-      content: 'Server content'
-    }
-  ],
+  TODO: [],
   DOING: [],
   DONE: []
 }
@@ -79,11 +38,20 @@ export const itemSlice = createSlice({
       ].filter(item => item.id !== action.payload.item!.id)
 
       action.payload.item!.section = action.payload.section
-      state[action.payload.section].push(action.payload.item!)
+      state[action.payload.section] = [
+        action.payload.item!,
+        ...state[action.payload.section]
+      ]
+    },
+    addTarea: (state, action: PayloadAction<IItem>) => {
+      state[action.payload.section] = [
+        action.payload,
+        ...state[action.payload.section]
+      ]
     }
   }
 })
 
-export const { moveItem } = itemSlice.actions
+export const { moveItem, addTarea } = itemSlice.actions
 
 export default itemSlice.reducer

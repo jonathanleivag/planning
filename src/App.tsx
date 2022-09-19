@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from './app/store'
 import {
   CardComponent,
+  FormComponent,
   ListComponent,
   ModalComponent,
   NavbarComponent,
@@ -85,10 +86,9 @@ function App () {
           ))}
         </ListComponent>
       </main>
-      <ModalComponent
-        isOpenModal={isOpenModal}
-        setIsOpenModal={setIsOpenModal}
-      />
+      <ModalComponent isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal}>
+        <FormComponent setIsOpenModal={setIsOpenModal} />
+      </ModalComponent>
     </>
   )
 }

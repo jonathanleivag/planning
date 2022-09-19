@@ -1,10 +1,16 @@
 import { Editor } from '@tinymce/tinymce-react'
+import { FC, MutableRefObject } from 'react'
 
-import { KEY_EDITOR } from '../../../utils'
+import { KEY_EDITOR } from '../../utils'
 
-const EditorComponent = () => {
+interface IEditorComponent {
+  editorRef: MutableRefObject<any>
+}
+
+const EditorComponent: FC<IEditorComponent> = ({ editorRef }) => {
   return (
     <Editor
+      onInit={(evt, editor) => (editorRef.current = editor)}
       apiKey={KEY_EDITOR}
       init={{
         plugins:

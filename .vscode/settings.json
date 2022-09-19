@@ -64,9 +64,12 @@
   "cSpell.language": "en,es",
   "css.lint.unknownAtRules": "ignore",
   "cSpell.words": [
+    "disparch",
+    "formik",
     "jonathanleivag",
     "reduxjs",
     "tailwindcss",
-    "tinymce"
+    "tinymce",
+    "uuidv"
   ]
 }
