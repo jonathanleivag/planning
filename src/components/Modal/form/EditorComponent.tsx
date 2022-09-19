@@ -1,9 +1,11 @@
 import { Editor } from '@tinymce/tinymce-react'
 
+import { KEY_EDITOR } from '../../../utils'
+
 const EditorComponent = () => {
   return (
     <Editor
-      apiKey={import.meta.env.VITE_API_KEY_EDITOR}
+      apiKey={KEY_EDITOR}
       init={{
         plugins:
           'lists checklist image link code table media emoticons hr anchor pagebreak nonbreaking toc insertdatetime advlist autolink lists link image charmap print preview anchor searchreplace visualblocks code fullscreen insertdatetime media table paste code wordcount',
