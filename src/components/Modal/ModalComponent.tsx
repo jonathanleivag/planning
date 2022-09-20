@@ -1,8 +1,9 @@
 import { Dispatch, FC, SetStateAction } from 'react'
 import { AiFillCloseCircle } from 'react-icons/ai'
 import ReactModal from 'react-modal'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
+import { RootState } from '../../app/store'
 import { resetSelect } from '../../features'
 
 interface IModalProps {
@@ -13,10 +14,13 @@ interface IModalProps {
 
 const Modal: FC<IModalProps> = ({ setIsOpenModal, isOpenModal, children }) => {
   const dispatch = useDispatch()
+  const selectItem = useSelector((state: RootState) => state.item.selectItem)
 
   const handleCloseModal = () => {
     setIsOpenModal(false)
-    dispatch(resetSelect())
+    if (selectItem.id) {
+      dispatch(resetSelect())
+    }
   }
 
   return (
