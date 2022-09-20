@@ -5,13 +5,15 @@ import { KEY_EDITOR } from '../../utils'
 
 interface IEditorComponent {
   editorRef: MutableRefObject<any>
+  value: string
 }
 
-const EditorComponent: FC<IEditorComponent> = ({ editorRef }) => {
+const EditorComponent: FC<IEditorComponent> = ({ editorRef, value }) => {
   return (
     <Editor
       onInit={(evt, editor) => (editorRef.current = editor)}
       apiKey={KEY_EDITOR}
+      initialValue={value}
       init={{
         plugins:
           'lists checklist image link code table media emoticons anchor pagebreak nonbreaking insertdatetime advlist autolink lists link image charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table  code wordcount',

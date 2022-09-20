@@ -5,8 +5,9 @@ import { BiServer } from 'react-icons/bi'
 import { BsMicrosoft, BsPencil, BsServer } from 'react-icons/bs'
 import { FcPlus } from 'react-icons/fc'
 import { MdWeb } from 'react-icons/md'
+import { useDispatch } from 'react-redux'
 
-import { IItem } from '../features'
+import { addSelect, IItem } from '../features'
 import { TName } from './ListComponent'
 
 interface ICardCOmponent {
@@ -17,7 +18,7 @@ interface ICardCOmponent {
   type?: TTypeICon
   setDragged?: Dispatch<IItem | undefined>
   add?: boolean
-  setIsOpenModal?: Dispatch<SetStateAction<boolean>>
+  setIsOpenModal: Dispatch<SetStateAction<boolean>>
   content?: string
 }
 
@@ -73,6 +74,8 @@ const CardComponent: FC<ICardCOmponent> = ({
   setIsOpenModal,
   content
 }) => {
+  const dispatch = useDispatch()
+
   const handleDragStart: DragEventHandler<HTMLDivElement> = event => {
     setDragged!({
       id: id!,
@@ -85,6 +88,20 @@ const CardComponent: FC<ICardCOmponent> = ({
   }
 
   const handleOnClick = () => setIsOpenModal!(true)
+
+  const handleEdit = () => {
+    dispatch(
+      addSelect({
+        id: id!,
+        title: title!,
+        content: content!,
+        description: children!,
+        type: type!,
+        section: section!
+      })
+    )
+    setIsOpenModal!(true)
+  }
 
   return (
     <div
@@ -114,7 +131,7 @@ const CardComponent: FC<ICardCOmponent> = ({
             </span>
           </div>
           <button>
-            <BsPencil className='text-xl' />
+            <BsPencil className='text-xl' onClick={handleEdit} />
           </button>
         </>
       )}

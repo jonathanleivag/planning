@@ -1,9 +1,10 @@
 import { useFormik } from 'formik'
 import { FC, SetStateAction, useRef } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { v4 as uuidv4 } from 'uuid'
 
-import { addTarea, IItem } from '../../features'
+import { RootState } from '../../app/store'
+import { addTarea, IItem, resetSelect, updateTarea } from '../../features'
 import { TareaValidation } from '../../validations'
 import { EditorComponent } from '.'
 
@@ -17,25 +18,40 @@ interface IFormProps {
 
 const FormComponent: FC<IFormProps> = ({ setIsOpenModal }) => {
   const editorRef = useRef<IRef>(null)
-  const disparch = useDispatch()
+  const dispatch = useDispatch()
+  const selectItem = useSelector((state: RootState) => state.item.selectItem)
 
   const formik = useFormik<IItem>({
     initialValues: {
-      title: '',
-      description: '',
+      title: selectItem.title || '',
+      description: selectItem.description || '',
       content: '',
-      type: 'other',
-      section: 'TODO'
+      type: selectItem.type || 'other',
+      section: selectItem.section || 'TODO'
     },
     validationSchema: TareaValidation,
     onSubmit: values => {
-      disparch(
-        addTarea({
-          id: uuidv4(),
-          ...values,
-          content: editorRef.current?.getContent() || ''
-        })
-      )
+      if (selectItem.id) {
+        dispatch(
+          updateTarea({
+            item: {
+              ...values,
+              content: editorRef.current?.getContent() || '',
+              id: selectItem.id
+            },
+            section: selectItem.section
+          })
+        )
+        dispatch(resetSelect())
+      } else {
+        dispatch(
+          addTarea({
+            id: uuidv4(),
+            ...values,
+            content: editorRef.current?.getContent() || ''
+          })
+        )
+      }
       setIsOpenModal(false)
     }
   })
@@ -96,14 +112,17 @@ const FormComponent: FC<IFormProps> = ({ setIsOpenModal }) => {
         )}
       </div>
       <div className='w-full md:col-span-2'>
-        <EditorComponent editorRef={editorRef} />
+        <EditorComponent
+          value={selectItem.content || ''}
+          editorRef={editorRef}
+        />
       </div>
       <div className='w-full flex justify-center md:justify-end items-center md:col-span-2'>
         <button
           className='px-6 py-1 rounded-lg bg-green-600 text-white'
           type='submit'
         >
-          Crear
+          {selectItem.id ? 'Actualizar' : 'Crear'}
         </button>
       </div>
     </form>

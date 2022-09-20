@@ -15,6 +15,7 @@ export interface IElement {
   TODO: IItem[]
   DOING: IItem[]
   DONE: IItem[]
+  selectItem: IItem
 }
 
 interface IMoveItem {
@@ -22,10 +23,21 @@ interface IMoveItem {
   section: TName
 }
 
+interface IUpdateItem {
+  item: IItem
+  section: TName
+}
+
 const initialState: IElement = {
   TODO: [],
   DOING: [],
-  DONE: []
+  DONE: [],
+  selectItem: {
+    title: '',
+    description: '',
+    type: 'server',
+    section: 'TODO'
+  }
 }
 
 export const itemSlice = createSlice({
@@ -48,10 +60,36 @@ export const itemSlice = createSlice({
         action.payload,
         ...state[action.payload.section]
       ]
+    },
+    addSelect: (state, action: PayloadAction<IItem>) => {
+      state.selectItem = action.payload
+    },
+    resetSelect: state => {
+      state.selectItem = {
+        title: '',
+        description: '',
+        type: 'server',
+        section: 'TODO'
+      }
+    },
+    updateTarea: (state, action: PayloadAction<IUpdateItem>) => {
+      state[action.payload.section] = state[action.payload.section].filter(
+        item => item.id !== action.payload.item.id
+      )
+      state[action.payload.item.section] = [
+        action.payload.item,
+        ...state[action.payload.item.section]
+      ]
     }
   }
 })
 
-export const { moveItem, addTarea } = itemSlice.actions
+export const {
+  moveItem,
+  addTarea,
+  addSelect,
+  updateTarea,
+  resetSelect
+} = itemSlice.actions
 
 export default itemSlice.reducer

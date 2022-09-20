@@ -45,6 +45,7 @@ function App () {
                 title={item.title}
                 type={item.type}
                 content={item.content}
+                setIsOpenModal={setIsOpenModal}
               >
                 {item.description}
               </CardComponent>
@@ -64,6 +65,7 @@ function App () {
               title={item.title}
               type={item.type}
               content={item.content}
+              setIsOpenModal={setIsOpenModal}
             >
               {item.description}
             </CardComponent>
@@ -80,6 +82,7 @@ function App () {
               title={item.title}
               type={item.type}
               content={item.content}
+              setIsOpenModal={setIsOpenModal}
             >
               {item.description}
             </CardComponent>
