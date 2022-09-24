@@ -1,7 +1,7 @@
 import { Editor } from '@tinymce/tinymce-react'
 import { FC, MutableRefObject } from 'react'
 
-import { KEY_EDITOR } from '../../utils'
+import { KEY_EDITOR } from '../../../../utils'
 
 interface IEditorComponent {
   editorRef: MutableRefObject<any>

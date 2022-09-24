@@ -3,8 +3,8 @@ import { AiFillCloseCircle } from 'react-icons/ai'
 import ReactModal from 'react-modal'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { RootState } from '../../app/store'
-import { resetSelect } from '../../features'
+import { RootState } from '../../../../app/store'
+import { resetSelect } from '../../../../features'
 
 interface IModalProps {
   isOpenModal: boolean

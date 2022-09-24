@@ -7,7 +7,7 @@ import { FcPlus } from 'react-icons/fc'
 import { MdWeb } from 'react-icons/md'
 import { useDispatch } from 'react-redux'
 
-import { addSelect, IItem } from '../features'
+import { addSelect, IItem } from '../../../features'
 import { TName } from './ListComponent'
 
 interface ICardCOmponent {

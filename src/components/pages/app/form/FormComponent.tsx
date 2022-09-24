@@ -3,9 +3,9 @@ import { FC, SetStateAction, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { v4 as uuidv4 } from 'uuid'
 
-import { RootState } from '../../app/store'
-import { addTarea, IItem, resetSelect, updateTarea } from '../../features'
-import { TareaValidation } from '../../validations'
+import { RootState } from '../../../../app/store'
+import { addTarea, IItem, resetSelect, updateTarea } from '../../../../features'
+import { TareaValidation } from '../../../../validations'
 import { EditorComponent } from '.'
 
 interface IRef {
