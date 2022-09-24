@@ -103,10 +103,15 @@ const CardComponent: FC<ICardCOmponent> = ({
     setIsOpenModal!(true)
   }
 
+  const handleOnDobleClick = () => {
+    console.log('pase')
+  }
+
   return (
     <div
       draggable={!add}
       onClick={add ? handleOnClick : undefined}
+      onDoubleClick={add ? undefined : handleOnDobleClick}
       onDragStart={add ? undefined : handleDragStart}
       className={`w-11/12 rounded-lg mt-5 p-2 flex flex-row text-gray-800 ${
         add

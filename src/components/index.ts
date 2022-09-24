@@ -1,3 +1,4 @@
+export { default as ErrorPage } from './404'
 export type { TTypeICon } from './CardComponent'
 export { default as CardComponent } from './CardComponent'
 export { EditorComponent, FormComponent } from './form'
