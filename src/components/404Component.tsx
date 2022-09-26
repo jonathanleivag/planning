@@ -9,7 +9,6 @@ interface IErrorPage {
 
 const ErrorPage = () => {
   const error = useRouteError() as IErrorPage
-  console.error(error)
 
   return (
     <div id='error-page'>

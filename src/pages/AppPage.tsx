@@ -7,7 +7,6 @@ import {
   FormComponent,
   ListComponent,
   ModalComponent,
-  NavbarComponent,
   TName
 } from '../components'
 import { IItem, moveItem } from '../features'
@@ -32,7 +31,6 @@ function App () {
 
   return (
     <>
-      <NavbarComponent />
       <main className='flex gap-4 px-5 overflow-x-scroll'>
         <ListComponent handleOnDrop={handleOnDrop} name='TODO'>
           <>

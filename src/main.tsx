@@ -6,11 +6,13 @@ import { Provider } from 'react-redux'
 import { RouterProvider } from 'react-router-dom'
 
 import { store } from './app/store'
+import { NavbarComponent } from './components'
 import router from './Router'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <Provider store={store}>
+      <NavbarComponent />
       <RouterProvider router={router} />
     </Provider>
   </React.StrictMode>
