@@ -3,9 +3,13 @@ import { useParams } from 'react-router-dom'
 import { IRouterParamsTareas } from '../../Router'
 
 const idTareaPage = () => {
-  const { id } = useParams<IRouterParamsTareas>()
+  const { id, type } = useParams<IRouterParamsTareas>()
 
-  return <div> {id} </div>
+  return (
+    <div>
+      {id} {type}
+    </div>
+  )
 }
 
 export default idTareaPage

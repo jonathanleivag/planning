@@ -6,6 +6,7 @@ import { BsMicrosoft, BsPencil, BsServer } from 'react-icons/bs'
 import { FcPlus } from 'react-icons/fc'
 import { MdWeb } from 'react-icons/md'
 import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 import { addSelect, IItem } from '../../../features'
 import { TName } from './ListComponent'
@@ -75,6 +76,7 @@ const CardComponent: FC<ICardCOmponent> = ({
   content
 }) => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const handleDragStart: DragEventHandler<HTMLDivElement> = event => {
     setDragged!({
@@ -103,9 +105,8 @@ const CardComponent: FC<ICardCOmponent> = ({
     setIsOpenModal!(true)
   }
 
-  const handleOnDobleClick = () => {
-    console.log('pase')
-  }
+  const handleOnDobleClick = () =>
+    navigate(`/tareas/${section?.toLocaleLowerCase()}/${id}`)
 
   return (
     <div
